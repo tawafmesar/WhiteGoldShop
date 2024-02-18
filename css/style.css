@@ -1,16 +1,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
-
 body {
-	font-family: "Cairo", sans-serif;
-
+  font-family: "Cairo", sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
   line-height: 28px;
   color: #6a6a6a;
   font-size: 14px;
   background-color: #eff2f1; }
-
+rtll{
+  direction: rtl;
+}
 a {
   text-decoration: none;
   -webkit-transition: .3s all ease;
@@ -23,14 +25,24 @@ a {
     text-decoration: none; }
   a.more {
     font-weight: 600; }
-
+    .iconimg{
+      text-align: center;
+    }
 .custom-navbar {
-  background: #3b5d50 !important;
+  background: #ededed !important;
+  box-shadow: 0 3px 9px 0 rgba(0,0,0,.15);
   padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* This will make sure the navbar is on top of other elements */
+}
   .custom-navbar .navbar-brand {
     font-size: 32px;
-    font-weight: 600; }
+    font-weight: 600; 
+    color: #1E1E1E;
+  }
     .custom-navbar .navbar-brand > span {
       opacity: .4; }
   .custom-navbar .navbar-toggler {
@@ -45,7 +57,7 @@ a {
       margin-right: 15px; } }
   .custom-navbar .custom-navbar-nav li a {
     font-weight: 500;
-    color: #ffffff !important;
+    color: #1E1E1E !important;
     opacity: .5;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
@@ -65,7 +77,14 @@ a {
         width: 0;
         -webkit-transition: .15s all ease-out;
         -o-transition: .15s all ease-out;
-        transition: .15s all ease-out; } }
+        transition: .15s all ease-out; } 
+
+        .iconimg{
+          text-align: center;
+        }
+      
+      
+      }
     .custom-navbar .custom-navbar-nav li a:hover {
       opacity: 1; }
       .custom-navbar .custom-navbar-nav li a:hover:before {
@@ -89,9 +108,14 @@ a {
       .custom-navbar .custom-navbar-cta li:first-child {
         margin-right: 20px; }
 
-.hero {
-  background: #3b5d50;
-  padding: calc(4rem - 30px) 0 0rem 0; }
+        .hero {
+          background-image: url('../images/bg.JPG');
+          background-repeat: repeat;
+          background-size: cover; /* This will make the image cover the entire div */
+          background-position: center; /* This will center the image */
+          padding: calc(4rem - 30px) 0 0rem 0;
+        }
+
   @media (min-width: 768px) {
     .hero {
       padding: calc(4rem - 30px) 0 4rem 0; } }
@@ -106,14 +130,14 @@ a {
         max-width: 450px; } }
   .hero h1 {
     font-weight: 700;
-    color: #ffffff;
+    color: #1E1E1E;
     margin-bottom: 30px; }
     @media (min-width: 1400px) {
       .hero h1 {
         font-size: 54px; } }
   .hero p {
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 30px; }
+    color: #1E1E1E;
+    margin-botom: 30px; }
   .hero .hero-img-wrap {
     position: relative; }
     .hero .hero-img-wrap img {
@@ -201,6 +225,10 @@ a {
     padding-bottom: 50px;
     cursor: pointer; }
     .product-section .product-item .product-thumbnail {
+      border-top-left-radius: 50px;
+      border-top: solid 4px #D99101;
+      border-left: solid 4px #D99101;
+
       margin-bottom: 30px;
       position: relative;
       top: 0;
@@ -307,12 +335,12 @@ a {
 
 .we-help-section {
   padding: 7rem 0; }
-  /* .we-help-section .imgs-grid {
+  .we-help-section .imgs-grid {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[27];
     grid-template-columns: repeat(27, 1fr);
-    position: relative; } */
+    position: relative; }
     .we-help-section .imgs-grid:before {
       position: absolute;
       content: "";
@@ -497,13 +525,6 @@ a {
         background-color: #d6d6d6; }
       .testimonial-slider-wrap .tns-nav button:hover:before, .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
         background-color: #3b5d50; }
-
-
-
-
-
-
-        
 
 .before-footer-section {
   padding: 7rem 0 12rem 0 !important; }

@@ -179,7 +179,7 @@ if (isset($_SESSION['username'])) {
 
 
 
-	<div class="section ltrr" style="direction: ltr;">
+	<div class="section ltrr" >
 		<div class="container">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">

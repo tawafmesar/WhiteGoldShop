@@ -8,11 +8,9 @@
   <meta name="description" content="" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title> اكسسوارات</title>
+  <title> وايت جولد</title>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/bootstrap.rtl.css" />
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="css/tiny-slider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
@@ -24,6 +22,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="css/tiny-slider.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/all.css" />
 		<link href="css/style.css" rel="stylesheet">
     
     
@@ -31,45 +31,46 @@
 
 	<body  >
 
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar" dir="rtl">
+		<nav dir="rtl" class="custom-navbar navbar navbar navbar-expand-md navbar-light bg-light rtll" arial-label="Furni navigation bar" >
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+				<a class="navbar-brand" href="index.html">وايت جولد<span>.</span></a>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Home</a>
+							<a class="nav-link" href="index.php">الرئيسية</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-					</ul>
+						<li><a class="nav-link" href="shop.html">منتجاتنا</a></li>
+						<li><a class="nav-link" href="about.html"> <i class="fa-solid fa-envelope" style="margin-left:4px;"></i> تواصل معنا</a></li>
+						<?php   if (!isset($_SESSION['user'])) { ?>
+						<li>
+							<a class="nav-link" style="font-weight:bold;" href="login.php" >
+							<i class="fa fa-sign-in" aria-hidden="true" style="margin-left:4px;"></i> تسجيل دخول</a>
+						</li>
+						<?php } else { ?>
+						<li>
+							<a class="nav-link" style="font-weight:bold;" href="logout.php" >
+							<i class="fa-solid fa-right-from-bracket" style="margin-left:4px;"></i> تسجيل خروج</a>
+						</li>
+						<?php } ?>
+						<li><a class="nav-link iconimg" href="#"><img src="images/user.svg"></a></li>
+						<li><a class="nav-link iconimg" href="cart.html"><img src="images/cart.svg"></a></li>
 
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-            <?php   if (!isset($_SESSION['user'])) { ?>
-          <li>
-              <a class="nav-link" style="font-weight:bold;" href="login.php" >
-                <i class="fa-solid  fa-arrow-right-to-bracket"></i> تسجيل دخول</a>
-          </li>
-        <?php } else { ?>
-          <li>
-              <a class="nav-link"  style="font-weight:bold;" href="notifications.php" >
-                <i class="fa-solid fa-notifications"></i>  الأشعارات</a>
-          </li>
-          <li>
-              <a class="nav-link" style="font-weight:bold;" href="logout.php" >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> تسجيل خروج</a>
-          </li>
-        <?php } ?>
 					</ul>
 				</div>
 			</div>
-				
+			<script>
+    $(document).ready(function() {
+        $('.custom-navbar-nav li a').click(function(e) {
+			window.location.href = $(this).attr('href'); 
+            $('.custom-navbar-nav li').removeClass('active');
+            $(this).parent().addClass('active');
+        });
+    });
+</script>
 		</nav>
