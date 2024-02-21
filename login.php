@@ -194,11 +194,11 @@ if (isset($_SESSION['username'])) {
 										<form class="section text-center drtt" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 											<h4 class="mb-4 pb-3">تسجيل الدخول</h4>
 											<div class="form-group">
-												<input type="text" name="email" class="form-style drtt" placeholder="اسـم المستخـدم" id="logemail" autocomplete="off">
+												<input type="text" name="email" class="form-style drtt" placeholder="البريد الألكنروني" id="logemail" autocomplete="off">
 												<i class="input-icon uil uil-user"></i>
 			  								</div>
 											<div class="form-group mt-2">
-						 						<input type="password" name="password" class="form-style" placeholder="كلمة السر" id="logpass" autocomplete="off">
+						 						<input type="password" name="password" class="form-style" placeholder="كلمة المرور" id="logpass" autocomplete="off">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
                       <input type="submit" name="login" class="btn mt-4"  value="تسجيل الدخول">
@@ -216,7 +216,7 @@ if (isset($_SESSION['username'])) {
 											</div>
 
 											<div class="form-group mt-2 ">
-												<input type="email" name="email" class="form-style drtt" placeholder="الأيميل" id="logemail" autocomplete="off">
+												<input type="email" name="email" class="form-style drtt" placeholder="البريد الألكنروني" id="logemail" autocomplete="off">
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
@@ -237,37 +237,16 @@ if (isset($_SESSION['username'])) {
 	      	</div>
 	    </div>
 	</div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      function validateForm() {
-    var passwordd = document.getElementById("logpass").value;
-    var repassword = document.getElementById("relogpass").value;
 
-    console.log("Password:", passwordd);
-    console.log("Re-entered Password:", repassword);
-
-    if (passwordd !== repassword) {
-      alert("كلمة السر وتأكيد كلمة السر غير متطابقين");
-      return false;
-    }
-
-    return true;
-  }
-});
-
-</script>
-
-<?php
+  <?php
 
 
 
-  include 'files/footer.php';
-  ob_end_flush();
-  ?>
+include 'files/footer.php';
+ob_end_flush();
+?>
 
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/tiny-slider.js"></script>
-		<script src="js/custom.js"></script>
-	</body>
+
+</body>
 
 </html>
