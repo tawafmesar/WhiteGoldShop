@@ -3,7 +3,7 @@
   <!--  start connecting to database -->
   <?php
 
-$dsn = "mysql:host=localhost;dbname=give&take";
+$dsn = "mysql:host=localhost;dbname=gallery";
 $user = "root";
 $pass = "";
 $option = array(

@@ -45,7 +45,7 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="index.php">الرئيسية</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">منتجاتنا</a></li>
+						<li><a class="nav-link" href="products.php">منتجاتنا</a></li>
 						<li><a class="nav-link" href="about.html"> <i class="fa-solid fa-envelope" style="margin-left:4px;"></i> تواصل معنا</a></li>
 						<?php   if (!isset($_SESSION['user'])) { ?>
 						<li>
