@@ -5,7 +5,7 @@ session_start();
 
   include 'files/ini.php';
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['user'])) {
   header('Location: index.php');
 
   exit();

@@ -36,7 +36,7 @@ if( isset($_SESSION['email']) ){
                                         <form id="verifyForm" class="section text-center drtt" action="checkcodesignup.php" method="post" style="flex-direction:inherit;">
                                                         <h4 class="mb-4 pb-3"> تأكيد البريد الألكتروني</h4>
                                                                 <h2>ادخل رمز التحقق الذي تم ارسالة الى بريدك الألكتروني</h2>
-                                                                <h1><?php echo   $email ; ?></h1>           
+                                                                <h4><?php echo   $email ; ?></h4>           
                                             <input type="text"style="  width: 50px; text-align: center;   line-height: normal;" autofocus name="code[]" maxlength="1" pattern="[0-9]" required oninput="moveToNext(this, 1)">
                                             <input type="text" style="  width: 50px; text-align: center;   line-height: normal;"  name="code[]" maxlength="1" pattern="[0-9]" required oninput="moveToNext(this, 2)">
                                             <input type="text" style="  width: 50px; text-align: center;   line-height: normal;" name="code[]" maxlength="1" pattern="[0-9]" required oninput="moveToNext(this, 3)">

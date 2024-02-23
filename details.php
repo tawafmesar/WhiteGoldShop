@@ -219,13 +219,13 @@ if ($count > 0) {
 
             <form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="hidden" name="itemid" value="<?php echo $item['items_id']; ?>">
-              <div class="quantity">
+              <!-- <div class="quantity">
                 <div class="select-quantity">
                   <h3>الكمية</h3>
                   <input type="number" name="quantity" value="1">
                 </div>
               </div>
-              
+               -->
               <div class="sub-btn">
               <!-- <button name="cart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">أضافة للسلة</span></button> -->
               

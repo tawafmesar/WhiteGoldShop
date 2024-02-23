@@ -46,7 +46,7 @@
 							<a class="nav-link" href="index.php">الرئيسية</a>
 						</li>
 						<li><a class="nav-link" href="products.php">منتجاتنا</a></li>
-						<li><a class="nav-link" href="about.html"> <i class="fa-solid fa-envelope" style="margin-left:4px;"></i> تواصل معنا</a></li>
+						<li><a class="nav-link" href="contact.php"> <i class="fa-solid fa-envelope" style="margin-left:4px;"></i> تواصل معنا</a></li>
 						<?php   if (!isset($_SESSION['user'])) { ?>
 						<li>
 							<a class="nav-link" style="font-weight:bold;" href="login.php" >
@@ -58,8 +58,8 @@
 							<i class="fa-solid fa-right-from-bracket" style="margin-left:4px;"></i> تسجيل خروج</a>
 						</li>
 						<?php } ?>
-						<li><a class="nav-link iconimg" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link iconimg" href="cart.php"><img src="images/cart.svg"></a></li>
+						<li><a class="nav-link iconimg" href="favourite.php"><i style="  font-size: 20px;" class="fa-solid fa-heart"></i></a></li>
+						<li><a class="nav-link iconimg" href="cart.php"><i  style="  font-size: 20px;" class="fa-solid fa-cart-shopping"></i></a></li>
 
 					</ul>
 				</div>
