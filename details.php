@@ -21,6 +21,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   header("refresh:1.5;url=login.php");
 
   }else{
+
+    
+    if (isset($_POST['cart'])) {
+      $userid = $_SESSION['userid'];
+      $itemid = $_POST['itemid'];
+  
+      $data = array(
+        "cart_itemsid" => $itemid,
+        "cart_usersid" => $userid,
+      );
+  
+      $countt = insertData("cart", $data);
+      if ($countt > 0) {
+        echo "<script>
+                        Swal.fire({
+                            title: 'تم اضافة المنتج للسلة',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1950,
+                        });
+                      </script>";
+  
+                      }
+
+
+    }
+
+    if (isset($_POST['delcart'])) {
+      $userid = $_SESSION['userid'];
+      $itemid = $_POST['itemid'];
+   
+    try {
+      $stmt = $con->prepare("SELECT * FROM cart WHERE cart_usersid = ? AND cart_itemsid = ? AND cart_status = 1");
+      $stmt->execute(array($userid, $itemid)); 
+      $count = $stmt->rowCount();
+      $fav=$stmt->fetch();
+
+      $cart_id =$fav['cart_id'];
+  } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage();
+  }
+    
+    $stmt = $con->prepare("DELETE FROM cart WHERE cart_id = ?");
+    $stmt->execute(array($cart_id)); 
+    $count2 = $stmt->rowCount();
+    if ($count2 > 0) {
+            echo "<script>
+                      Swal.fire({
+                          title: 'تم حذف المنتج من  السلة',
+                          icon: 'success',
+                          showConfirmButton: false,
+                          timer: 1950,
+                      });
+                    </script>";
+
+    }
+  }
+
   if (isset($_POST['fav'])) {
     
 
@@ -169,22 +227,38 @@ if ($count > 0) {
               </div>
               
               <div class="sub-btn">
-              <button name="cart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">أضافة للسلة</span></button>
+              <!-- <button name="cart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">أضافة للسلة</span></button> -->
               
            
               <?php  
-     $userid = $_SESSION['userid'];
-     $itemsid = $item['items_id'];
-     
-     $stmt = $con->prepare("SELECT * FROM favorite WHERE favorite_usersid = ? AND favorite_itemsid = ?");
-     $stmt->execute(array($userid, $itemsid)); 
-     $count = $stmt->rowCount();
-     if (!$count > 0) {
-         echo '<button name="fav" class="submit2"><i class="fa-solid fa-heart"></i><span class="test">أضافة للمفضلة</span></button>';
-     }else{
-      echo '<button name="delfav" class="submit2"><i class="fa-solid fa-heart-crack"></i><span class="test"> حذف من المفضلة</span></button>';
+                if (!isset($_SESSION['user'])) {
+                  echo '<button name="cart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">أضافة للسلة</span></button>';
+                  echo '<button name="fav" class="submit2"><i class="fa-solid fa-heart"></i><span class="test">أضافة للمفضلة</span></button>';
 
-     }
+                }else{
+                  $userid = $_SESSION['userid'];
+                  $itemsid = $item['items_id'];
+                  
+                  $stmtCart = $con->prepare("SELECT * FROM cart WHERE cart_usersid = ? AND cart_itemsid = ?  AND cart_status = 1");
+                  $stmtCart->execute(array($userid, $itemsid)); 
+                  $countCart = $stmtCart->rowCount();
+
+                  if (!$countCart > 0) {
+                    echo '<button name="cart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">أضافة للسلة</span></button>';
+                  }else{
+                    echo '<button name="delcart" class="submit"><i class="fa-solid fa-cart-shopping"></i><span class="test">حذف من السلة </span></button>';
+                    }    
+                  $stmt = $con->prepare("SELECT * FROM favorite WHERE favorite_usersid = ? AND favorite_itemsid = ?");
+                  $stmt->execute(array($userid, $itemsid)); 
+                  $count = $stmt->rowCount();
+                  if (!$count > 0) {
+                      echo '<button name="fav" class="submit2"><i class="fa-solid fa-heart"></i><span class="test">أضافة للمفضلة</span></button>';
+                  }else{
+                   echo '<button name="delfav" class="submit2"><i class="fa-solid fa-heart-crack"></i><span class="test"> حذف من المفضلة</span></button>';
+                  }
+                }
+              
+
      
 
                       ?>

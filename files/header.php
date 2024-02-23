@@ -59,7 +59,7 @@
 						</li>
 						<?php } ?>
 						<li><a class="nav-link iconimg" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link iconimg" href="cart.html"><img src="images/cart.svg"></a></li>
+						<li><a class="nav-link iconimg" href="cart.php"><img src="images/cart.svg"></a></li>
 
 					</ul>
 				</div>

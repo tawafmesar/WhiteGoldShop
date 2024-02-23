@@ -252,7 +252,14 @@ padding: calc(3rem - 30px) 0 4rem 0; } }
 padding: calc(6rem - 30px) 0 8rem 0; } }
 
 
-
+ .quantity .select-quantity input{
+  background: #e8e8e8;
+  border: 0;
+  outline: 0;
+  padding: 2px  15px 2px 2px ;
+  border-radius: 12px;
+  width: 50px;
+}
 .details .quantity{
   margin-bottom: 50px;
 }

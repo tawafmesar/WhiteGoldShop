@@ -1,0 +1,72 @@
+<form class="col-md-12" method="post">
+    <div class="site-blocks-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="product-thumbnail">صورة المنتج</th>
+                    <th class="product-name">الاسم</th>
+                    <th class="product-price">السعر</th>
+                    <th class="product-quantity">الكمية</th>
+                    <th class="product-total">المجموع</th>
+                    <th class="product-remove">حذف</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="product-thumbnail">
+                        <img src="images\products\number1.jpeg" alt="Image" class="img-fluid">
+                    </td>
+                    <td class="product-name">
+                        <h2 class="h5 text-black">قم نسائي ملكي باللون الفضي</h2>
+                    </td>
+                    <td class="product-price" data-price="49.00">
+                        49.00
+                    </td>
+                    <td>
+                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                            </div>
+                            <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="product-total">
+                        <input type="text" class="total-amount" name="total" value="49.00" disabled>
+                    </td>
+                    <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                </tr>
+                </tbody>
+                
+        </table>
+    </div>
+
+    <script>
+        const quantityInputs = document.querySelectorAll('.quantity-amount');
+        const totalInputs = document.querySelectorAll('.total-amount');
+
+        // Function to update total for each row
+        const updateTotal = (quantityInput, totalInput) => {
+            const quantity = parseFloat(quantityInput.value) || 0; // Handle non-numeric values
+            const price = parseFloat(quantityInput.parentNode.parentNode.querySelector('.product-price').dataset.price) || 0;
+            const total = quantity * price;
+            totalInput.value = total.toFixed(2); // Format with 2 decimal places
+        };
+
+        // Add event listeners for quantity changes
+        quantityInputs.forEach(quantityInput => {
+            quantityInput.addEventListener('change', () => {
+                const totalInput = quantityInput.parentNode.parentNode.querySelector('.total-amount');
+                updateTotal(quantityInput, totalInput);
+            });
+        });
+
+        // Update totals on initial page load
+        totalInputs.forEach(totalInput => {
+            const quantityInput = totalInput.parentNode.parentNode.querySelector('.quantity-amount');
+            updateTotal(quantityInput, totalInput);
+        });
+    </script>
+</form>
