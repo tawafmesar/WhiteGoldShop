@@ -7,8 +7,17 @@ include 'files/ini.php';
 $itemid = (isset($_GET['itemid']) && is_numeric($_GET['itemid'])) ? intval($_GET['itemid']) : 0;
 
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!isset($_SESSION['user'])) {
+    echo '  <div class="details nologin">
+              <div class="container nologin">
+                <div class="flex flex-wrap row">
+                </div>
+              </div>
+            </div>
+      ';
     echo "<script>
     Swal.fire({
         title: 'يجب عليك تسجيل الدخول',

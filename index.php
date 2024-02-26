@@ -20,7 +20,7 @@ session_start();
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="images\products\hero11.png"  class="img-fluid">
+								<img src="images\products\hero11.png" width="95%" class="img-fluid">
 								
 							</div>
 						</div>
@@ -36,7 +36,7 @@ session_start();
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">مجموعة أطقم نسائية فاخرة.</h2>
+						<h3 class="mb-4 ">مجموعة أطقم نسائية فاخرة.</h3>
 						<p class="mb-4">    مجموعة  أطقم نسائية  متنوعة ملكية وفاخرة باللون الفضي ويتكون كل طقم من  سلسال وخاتم واسوارة وحلق. </p>
 						<p><a href="shop.html" class="btn">المزيد... </a></p>
 					</div> 
@@ -112,6 +112,9 @@ session_start();
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="af-help-section">
+dsa
 		</div>
 		<!-- End We Help Section -->
 

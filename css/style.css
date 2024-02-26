@@ -141,6 +141,7 @@ a {
   .hero .hero-img-wrap {
     position: relative; }
     .hero .hero-img-wrap img {
+      width: 95%;
       position: relative;
       top: 0px;
       right: 0px;
@@ -975,19 +976,189 @@ padding: calc(6rem - 30px) 0 8rem 0; } }
 
 
     }
-/* 
+
     .untree_co-section{
-      background-image: url(../images/bg2.png);
       background-repeat: repeat;
       background-size: 400px;
-    } */
+    } 
+    .af-help-section {
+      background-image: url(../images/bh22.png);
+      background-repeat: repeat;
+      background-size: contain;
+      
+    }
     .bgphoto {
       background-image: url(../images/bg2.png);
       background-repeat: repeat;
       background-size: 400px;    } 
+
+
+      .nologin{
+        height: 600px;
+      }
     
     
   
+      .container-wa .floating-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        background-color: #2f2f2f;
+        color: white;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 35px;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px #666;
+        z-index: 1000;
+      }
+      .container-wa .floating-button:hover {
+        background-color: #f9bf29;
+      }
+      .container-wa .floating-button:hover .icon {
+        color: #2f2f2f;;
+      }
+      .container-wa .floating-button .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        line-height: 60px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .container-wa .floating-button .icon.wa {
+        animation: wa-out 0.3s;
+      }
+      .container-wa .floating-button .icon.close {
+        opacity: 0;
+        margin: auto;
+        transform: rotateZ(-70deg);
+        animation: close-out 0.3s;
+      }
+      .container-wa .card {
+        font-family: 'Quicksand', sans-serif;
+        position: absolute;
+        width: 180px;
+        height: 100px;
+        background-color:white;
+        border-radius: 5px;
+        right: 40px;
+        bottom: 88px;
+        display: none;
+        border:1px solid rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+      }
+      .container-wa .card  {
+        background-image: url(../images/bg2.png);
+        background-repeat: repeat;
+        background-size: 400px;
+      }
+      .container-wa .card .banner-body {
+        flex-grow: 1;
+        background-color: #eaeaea;
+        padding: 15px;
+      }
+      .container-wa .card .banner-body .card-atendente {
+        margin-top: -50px;
+        background-color: white;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+      }
+      .container-wa .card .banner-body .card-atendente .dados-atendente {
+        display: flex;
+      }
+      .container-wa .card .banner-body .card-atendente .dados-atendente .avatar {
+        padding: 15px;
+      }
+      .container-wa .card .banner-body .card-atendente .dados-atendente .avatar img {
+        border-radius: 50%;
+      }
+      .container-wa .card .banner-body .card-atendente .dados-atendente .informacoes {
+        padding: 15px;
+      }
+      .container-wa .card .banner-body .card-atendente .botao-atendente {
+        display: flex;
+      }
+      .container-wa .card .banner-body .card-atendente .botao-atendente .btn {
+        color: white;
+        background-color: #24d366;
+        border-radius: 15px;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .container-wa.is-opened .icon.wa {
+        animation: wa-in 0.15s linear;
+        animation-fill-mode: forwards;
+      }
+      .container-wa.is-opened .icon.close {
+        animation: close-in 0.2s;
+        animation-delay: 0.1s;
+        animation-fill-mode: forwards;
+      }
+      .container-wa.is-opened .card {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+      }
+      
+      .container-wa.is-opened .icon.wa {
+        animation: wa-in 0.15s linear;
+        animation-fill-mode: forwards;
+      }
+      
+      .container-wa.is-opened .icon.close {
+        animation: close-in 0.2s;
+        animation-delay: 0.1s;
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes close-in {
+        from {
+          opacity: 0;
+          transform: rotateZ(-70deg);
+        }
+        to {
+          opacity: 1;
+          transform: rotateZ(0deg);
+        }
+      }
+      @keyframes close-out {
+        from {
+          opacity: 1;
+          transform: rotateZ(0deg);
+        }
+        to {
+          opacity: 0;
+          transform: rotateZ(-70deg);
+        }
+      }
+      @keyframes wa-in {
+        from {
+          opacity: 1;
+          transform: rotateZ(0deg);
+        }
+        to {
+          opacity: 0;
+          transform: rotateZ(180deg);
+        }
+      }
+      @keyframes wa-out {
+        from {
+          opacity: 0;
+          transform: rotateZ(180deg);
+        }
+        to {
+          opacity: 1;
+          transform: rotateZ(0deg);
+        }
+      }
 
 textarea {
   height: auto !important; }

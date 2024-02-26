@@ -19,9 +19,9 @@
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">الرئيسية</a></li>
-									<li><a href="#">منتجاتنا</a></li>
-									<li><a href="#">تواصل معنا</a></li>
+									<li><a href="index.php">الرئيسية</a></li>
+									<li><a href="products.php">منتجاتنا</a></li>
+									<li><a href="contact.php">تواصل معنا</a></li>
 
 
 								</ul>
@@ -30,8 +30,8 @@
 
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-							    	<li><a href="#">المفضلات</a></li>
-									<li><a href="#">سلة المشتريات</a></li>
+							    	<li><a href="favourite.php">المفضلات</a></li>
+									<li><a href="cart.php">سلة المشتريات</a></li>
 								</ul>
 							</div>
 						</div>

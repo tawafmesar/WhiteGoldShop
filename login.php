@@ -195,7 +195,7 @@ if (isset($_SESSION['user'])) {
 											<h4 class="mb-4 pb-3">تسجيل الدخول</h4>
 											<div class="form-group">
 												<input type="text" name="email" class="form-style drtt" placeholder="البريد الألكنروني" id="logemail" autocomplete="off">
-												<i class="input-icon uil uil-user"></i>
+                        <i class="input-icon uil uil-at"></i>
 			  								</div>
 											<div class="form-group mt-2">
 						 						<input type="password" name="password" class="form-style" placeholder="كلمة المرور" id="logpass" autocomplete="off">
@@ -211,21 +211,22 @@ if (isset($_SESSION['user'])) {
 										<form class="section text-center drtt" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return validateForm()">
 											<h4 class="mb-4 pb-3">إنشاء حساب</h4>
 											<div class="form-group">
-												<input type="text" name="username" class="form-style" placeholder="اسم المستخدم" id="logname" autocomplete="off">
+												<input type="text" name="username" class="form-style" placeholder="اسم المستخدم" id="logname" autocomplete="off" required>
 												<i class="input-icon uil uil-user"></i>
 											</div>
 
 											<div class="form-group mt-2 ">
-												<input type="email" name="email" class="form-style drtt" placeholder="البريد الألكنروني" id="logemail" autocomplete="off">
+												<input type="email" name="email" class="form-style drtt" placeholder="البريد الألكنروني" id="logemail" autocomplete="off" required>
 												<i class="input-icon uil uil-at"></i>
 											</div>
+                      <div class="form-group mt-2">
+                            <input type="phone"  id="relogpass" name="phone" class="form-style" placeholder="رقم الجوال" autocomplete="off" required>												<i class="input-icon uil uil-lock-alt"></i>
+											</div>                      
 											<div class="form-group mt-2">
-                      <input type="password"  id="logpass" name="password" class="form-style" placeholder="كلمة المرور"  autocomplete="off">
+                      <input type="password"  id="logpass" name="password" class="form-style" placeholder="كلمة المرور"  autocomplete="off" required>
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
-                      <div class="form-group mt-2">
-                            <input type="password"  id="relogpass" name="repassword" class="form-style" placeholder=" اعد كلمة المرور" autocomplete="off">												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
+
                       <input type="submit" name="signup" class="btn mt-4"  value="إنشاء حساب جديد">
 				      					</form>
 			      					</div>
