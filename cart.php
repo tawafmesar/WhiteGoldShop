@@ -107,7 +107,7 @@ if (!isset($_SESSION['user'])) {
                     <td>
                         <div class="quantity">
                             <div class="select-quantity">
-                                <input type="number" name="quantity" id="quantity<?php echo $item['items_id'];?>" min="1" value="1" oninput="calculateTotal(<?php echo $item['items_id'];?>); calculateCartTotal()">
+                            <input type="number" name="quantity<?php echo $item['items_id'];?>" id="quantity<?php echo $item['items_id'];?>" min="1" value="1" oninput="calculateTotal(<?php echo $item['items_id'];?>); calculateCartTotal()">
                             </div>
                         </div>
                     </td>
@@ -202,30 +202,91 @@ if (!isset($_SESSION['user'])) {
     ?>
 
 
-
-
-
 <?php 
 } elseif ($do == 'Add' ) {
 
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
+
                     $user  = $_POST['cart_usersid'];
                     $total  = $_POST['cartTotal'];
 
-                    $data = array(
-                        "order_userid" => $user,
-                        "order_total" => $total,
-                      );
-                  
-                      $countt = insertData("confirmorder", $data);
+
+                    $stmt = $con->prepare("INSERT INTO
+                    confirmorder(order_userid, order_total )
+                    VALUES(:zuserid, :ztotal)");
+                      
+                      $stmt->execute(array(
+
+                        'zuserid' => $user,
+                        'ztotal' => $total
+
+                        ));
+
+                        $countt  = $stmt->rowCount();
+
+
+
+                      
                       if ($countt > 0) {
+                        $orderId = $con->lastInsertId();
+                        
 
-                        $stmt = $con->prepare("UPDATE cart SET cart_status = 2 WHERE cart_usersid = ? AND cart_status = 1");
-                        $stmt->execute(array($user)); 
-                        $counttt = $stmt->rowCount();
 
+
+                        $stmt = $con->prepare("
+                        SELECT 
+                                c.cart_id,
+                                c.cart_usersid,
+                                i.items_price ,
+                                i.items_id 
+                    
+                            FROM 
+                                cart c 
+                            JOIN 
+                                items i ON c.cart_itemsid = i.items_id 
+                            WHERE 
+                                c.cart_status = 1 AND
+                                c.cart_usersid = ?  ORDER BY
+                                cart_id 
+                                DESC;
+                                ");
+                    
+                    
+                    $stmt->execute(array($user));
+                    
+                    $allItems = $stmt->fetchall();
+                    
+                        foreach ($allItems as $item) {
+                            $itemId = $item['items_id'];
+                            $quantity = $_POST['quantity' . $itemId]; 
+                            $price = $item['items_price'];
+                    
+
+                            $stmt = $con->prepare("INSERT INTO
+                                 order_items(confirmorder_id , item_id , quantity,price )
+                            VALUES(:zconfirmorder_id, :zitem_id , :zquantity , :zprice )");
+                              
+                              $stmt->execute(array(
+        
+                                'zconfirmorder_id' => $orderId,
+                                'zitem_id' => $itemId,
+                                'zquantity' => $quantity,
+
+                                'zprice' => $price
+        
+                                ));
+                    
+                            
+                            $counttt = $stmt->execute();
+
+                            
                         if ($counttt > 0){
+
+                            $stmt = $con->prepare("UPDATE cart SET cart_status = 2 WHERE cart_usersid = ? AND cart_status = 1");
+                            $stmt->execute(array($user)); 
+
                             echo "<script>
                             Swal.fire({
                                 title: 'تم تأكيد الطلب سيتم التواصل بك في اقرب وقت',
@@ -237,6 +298,9 @@ if (!isset($_SESSION['user'])) {
                           header("refresh:2.5;url=index.php");
 
                         }
+
+                        }
+                    
 
 
       

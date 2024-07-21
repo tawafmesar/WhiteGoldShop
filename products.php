@@ -52,7 +52,7 @@ if (!empty($allItems)) {
 
                 <div class="col-6 col-md-4 col-lg-3 col-sm-6 mb-5">
                 <a class="product-item" href="details.php?itemid=<?php echo $item['items_id'];?>">
-                        <img src="upload/items/<?php echo $item['items_image'];?>" class="img-fluid product-thumbnail">
+                       <div class="test"><img src="upload/items/<?php echo $item['items_image'];?>" class="img-fluid product-thumbnail"></div> 
                         <h3 class="product-title"><?php echo $item['items_name'];?></h3>
                         <strong class="product-price"><?php echo $item['items_price'];?></strong>
                         <span class="icon-cross">
